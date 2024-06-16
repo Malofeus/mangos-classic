@@ -73,6 +73,12 @@ else()
   message(STATUS "Build Playerbots      : No  (default)")
 endif()
 
+if(BUILD_SOLOCRAFT)
+  message(STATUS "Build SoloCraft       : Yes")
+else()
+  message(STATUS "Build SoloCraft       : No  (default)")
+endif()
+
 if(BUILD_EXTRACTORS)
   message(STATUS "Build extractors      : Yes")
 else()
