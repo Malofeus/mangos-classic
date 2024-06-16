@@ -62,6 +62,17 @@ if(NOT BUILD_PLAYERBOTS)
   endforeach()
 endif()
 
+if(NOT BUILD_SOLOCRAFT)
+  # exclude SoloCraft folder
+  set (EXCLUDE_DIR "SoloCraft/")
+  foreach (TMP_PATH ${LIBRARY_SRCS})
+      string (FIND ${TMP_PATH} ${EXCLUDE_DIR} EXCLUDE_DIR_FOUND)
+      if (NOT ${EXCLUDE_DIR_FOUND} EQUAL -1)
+          list(REMOVE_ITEM LIBRARY_SRCS ${TMP_PATH})
+  endif ()
+endforeach()
+endif()
+
 set(PCH_BASE_FILENAME "pchdef")
 # exclude pchdef files
 set (EXCLUDE_FILE "${PCH_BASE_FILENAME}")
@@ -129,6 +140,12 @@ if(BUILD_PLAYERBOTS)
   add_dependencies(${LIBRARY_NAME} playerbots)
 endif()
 
+if(BUILD_SOLOCRAFT)
+  target_link_libraries(${LIBRARY_NAME} PUBLIC solocraft)
+  target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/src/modules/SoloCraft)
+  add_dependencies(${LIBRARY_NAME} solocraft)
+endif()
+
 if(UNIX)
   # Both systems don't have libdl and don't need them
   if (NOT (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD" OR CMAKE_SYSTEM_NAME STREQUAL "NetBSD"))
@@ -159,6 +176,11 @@ endif()
 # Define ENABLE_PLAYERBOTS if need
 if (BUILD_PLAYERBOTS)
   add_definitions(-DENABLE_PLAYERBOTS)
+endif()
+
+# Define ENABLE_SOLOCRAFT if need
+if (BUILD_SOLOCRAFT)
+  add_definitions(-DENABLE_SOLOCRAFT)
 endif()
 
 if (MSVC)

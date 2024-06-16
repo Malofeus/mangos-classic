@@ -50,6 +50,10 @@
 #include "playerbot/playerbot.h"
 #endif
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 Map::~Map()
 {
     UnloadAll(true);
@@ -437,6 +441,10 @@ bool Map::Add(Player* player)
     NGridType* grid = getNGrid(cell.GridX(), cell.GridY());
     player->GetViewPoint().Event_AddedToWorld(&(*grid)(cell.CellX(), cell.CellY()));
     UpdateObjectVisibility(player, cell, p);
+
+#ifdef ENABLE_SOLOCRAFT
+    sSolocraft.OnMapChanged(player);
+#endif
 
     if (i_data)
         i_data->OnPlayerEnter(player);

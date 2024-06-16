@@ -56,6 +56,10 @@
 #include "playerbot/playerbot.h"
 #endif
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 // select opcodes appropriate for processing in Map::Update context for current session state
 static bool MapSessionFilterHelper(WorldSession* session, OpcodeHandler const& opHandle)
 {
@@ -759,6 +763,10 @@ void WorldSession::LogoutPlayer()
 #if defined(BUILD_DEPRECATED_PLAYERBOT) || defined(ENABLE_PLAYERBOTS)
         // Remember player GUID for update SQL below
         uint32 guid = _player->GetGUIDLow();
+#endif
+
+#ifdef ENABLE_SOLOCRAFT
+    sSolocraft.OnLogout(_player);
 #endif
 
         ///- Remove the player from the world

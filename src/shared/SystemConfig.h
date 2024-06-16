@@ -77,6 +77,9 @@
 # define _MANGOSD_CONFIG  SYSCONFDIR"mangosd.conf"
 # define _REALMD_CONFIG   SYSCONFDIR"realmd.conf"
 # define _AUCTIONHOUSEBOT_CONFIG   SYSCONFDIR"ahbot.conf"
+#ifdef ENABLE_SOLOCRAFT
+    #define _D_SOLOCRAFT_CONFIG SYSCONFDIR"SoloCraft.conf"
+#endif
 #else
 # if defined  (__FreeBSD__)
 #  define _ENDIAN_PLATFORM "FreeBSD_" ARCHITECTURE " (" _ENDIAN_STRING ")"
@@ -96,7 +99,12 @@
 # define _MANGOSD_CONFIG  SYSCONFDIR"mangosd.conf"
 # define _REALMD_CONFIG  SYSCONFDIR"realmd.conf"
 # define _AUCTIONHOUSEBOT_CONFIG   SYSCONFDIR"ahbot.conf"
+#ifdef ENABLE_SOLOCRAFT
+    #define _D_SOLOCRAFT_CONFIG SYSCONFDIR"SoloCraft.conf"
 #endif
+#endif
+
+#define _SOLOCRAFT_CONFIG MaNGOS::Singleton<std::string>::Instance()
 
 #define _FULLVERSION(REVD,REVH) _PACKAGENAME "/" _VERSION(REVD,REVH) " for " _ENDIAN_PLATFORM
 

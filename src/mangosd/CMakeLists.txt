@@ -104,6 +104,11 @@ if(WIN32)
     add_custom_command(TARGET ${EXECUTABLE_NAME} POST_BUILD
 	  COMMAND ${CMAKE_COMMAND} -E copy_if_different \"${CMAKE_SOURCE_DIR}/src/game/AuctionHouseBot/ahbot.conf.dist.in\" \"$<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/ahbot.conf.dist\")
   endif()
+
+  if(BUILD_SOLOCRAFT)
+    add_custom_command(TARGET ${EXECUTABLE_NAME} POST_BUILD
+	  COMMAND ${CMAKE_COMMAND} -E copy_if_different \"${CMAKE_SOURCE_DIR}/src/modules/SoloCraft/SoloCraft.conf.dist.in\" \"$<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/SoloCraft.conf.dist\")
+  endif()
 endif()
 
 set(EXECUTABLE_LINK_FLAGS "")
@@ -142,6 +147,11 @@ endif()
 # Define ENABLE_PLAYERBOTS if need
 if (BUILD_PLAYERBOTS)
   add_definitions(-DENABLE_PLAYERBOTS)
+endif()
+
+# Define ENABLE_SOLOCRAFT if need
+if (BUILD_SOLOCRAFT)
+  add_definitions(-DENABLE_SOLOCRAFT)
 endif()
 
 if(MSVC)
