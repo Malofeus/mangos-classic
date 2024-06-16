@@ -34,7 +34,7 @@ if(BUILD_PLAYERBOTS)
 
   FetchContent_GetProperties(PlayerBots)
   if (NOT playerbots_POPULATED)
-    FetchContent_Populate(PlayerBots)
+    FetchContent_MakeAvailable(PlayerBots)
     message(STATUS "Playerbots module source dir: ${playerbots_SOURCE_DIR}")
   else()
     message(STATUS "Playerbots module already populated: ${playerbots_POPULATED}")
@@ -47,6 +47,34 @@ else()
     message(STATUS "PlayerBots module exists, but not building. You can remove it manually if you don't need it. (rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots)")
 
     #file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots)
+  endif()
+endif()
+
+# SoloCraft module
+if(BUILD_SOLOCRAFT)
+  include(FetchContent)
+
+  FetchContent_Declare(
+    SoloCraft
+    SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft"
+    GIT_REPOSITORY "https://github.com/Malofeus/SoloCraft.git"
+    GIT_TAG "master"
+  )
+
+  FetchContent_GetProperties(SoloCraft)
+  if (NOT solocraft_POPULATED)
+    FetchContent_MakeAvailable(SoloCraft)
+    message(STATUS "SoloCraft module source dir: ${solocraft_SOURCE_DIR}")
+  else()
+    message(STATUS "SoloCraft module already populated: ${solocraft_POPULATED}")
+    add_subdirectory(${solocraft_SOURCE_DIR})
+  endif()
+
+else()
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft)
+    message(STATUS "SoloCraft module exists, but not building. You can remove it manually if you don't need it. (rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft)")
+
+    #file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft)
   endif()
 endif()
 

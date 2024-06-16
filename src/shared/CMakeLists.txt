@@ -266,6 +266,11 @@ if (BUILD_PLAYERBOTS)
   add_definitions(-DENABLE_PLAYERBOTS)
 endif()
 
+# Define ENABLE_SOLOCRAFT if need
+if (BUILD_SOLOCRAFT)
+  add_definitions(-DENABLE_SOLOCRAFT)
+endif()
+
 # Generate precompiled header
 if(PCH)
   target_precompile_headers(${LIBRARY_NAME} PRIVATE "${PCH_FILE_HEADER}")

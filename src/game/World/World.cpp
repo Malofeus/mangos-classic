@@ -83,6 +83,10 @@
 #include "playerbot/RandomPlayerbotMgr.h"
 #endif
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 #include <algorithm>
 #include <mutex>
 #include <cstdarg>
@@ -1410,6 +1414,10 @@ void World::SetInitialWorldSettings()
 
 #ifdef ENABLE_PLAYERBOTS
     sPlayerbotAIConfig.Initialize();
+#endif
+
+#ifdef ENABLE_SOLOCRAFT
+    sSolocraft.Initialize();
 #endif
 
     sLog.outString("---------------------------------------");
