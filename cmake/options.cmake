@@ -1,11 +1,11 @@
 option(DEBUG                                "Include additional debug-code in core"     OFF)
 option(WARNINGS                             "Show all warnings during compile"          OFF)
 option(POSTGRESQL                           "Use PostgreSQL"                            OFF)
-option(PCH                                  "Use precompiled headers"                   ON)
-option(BUILD_GAME_SERVER                    "Build game server"                         ON)
-option(BUILD_LOGIN_SERVER                   "Build login server"                        ON)
+option(PCH                                  "Use precompiled headers"                    ON)
+option(BUILD_GAME_SERVER                    "Build game server"                          ON)
+option(BUILD_LOGIN_SERVER                   "Build login server"                         ON)
 option(BUILD_EXTRACTORS                     "Build map/dbc/vmap/mmap extractors"        OFF)
-option(BUILD_SCRIPTDEV                      "Build ScriptDev. (OFF Speedup build)"      ON)
+option(BUILD_SCRIPTDEV                      "Build ScriptDev. (OFF Speedup build)"       ON)
 option(BUILD_PLAYERBOTS                     "Build Playerbots mod"                      OFF)
 option(BUILD_AHBOT                          "Build Auction House Bot mod"               OFF)
 option(BUILD_METRICS                        "Build Metrics, generate data for Grafana"  OFF)
@@ -14,6 +14,7 @@ option(BUILD_GIT_ID                         "Build git_id"                      
 option(BUILD_DOCS                           "Build documentation with doxygen"          OFF)
 option(CMAKE_INTERPROCEDURAL_OPTIMIZATION   "Enable link-time optimizations"            OFF)
 option(BUILD_DEPRECATED_PLAYERBOT           "Build previous version of Playerbot mod"   OFF)
+option(BUILD_SOLOCRAFT                      "Build SoloCraft mod"                        ON)
 set(DEV_BINARY_DIR ${CMAKE_BINARY_DIR} CACHE STRING "Executable directory on Windows")
 
 # TODO: options that should be checked/created:
@@ -36,6 +37,7 @@ message(STATUS
     BUILD_EXTRACTORS        Build map/dbc/vmap/mmap extractor
     BUILD_PLAYERBOTS        Build Playerbots mod
     BUILD_AHBOT             Build Auction House Bot mod
+    BUILD_SOLOCRAFT         Build SoloCraft mod
     BUILD_METRICS           Build Metrics, generate data for Grafana
     BUILD_RECASTDEMOMOD     Build map/vmap/mmap viewer
     BUILD_GIT_ID            Build git_id

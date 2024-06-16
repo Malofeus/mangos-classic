@@ -27,8 +27,11 @@ jobs:
           - OPTIONAL_DEFINES: ""
             TYPE: "default"
 
-          - OPTIONAL_DEFINES: "-DBUILD_EXTRACTORS=ON -DBUILD_PLAYERBOTS=ON -DBUILD_AHBOT=ON -DBUILD_RECASTDEMOMOD=ON -DBUILD_GIT_ID=ON"
+          - OPTIONAL_DEFINES: "-DBUILD_EXTRACTORS=ON -DBUILD_PLAYERBOTS=ON -DBUILD_AHBOT=ON -DBUILD_SOLOCRAFT=ON -DBUILD_RECASTDEMOMOD=ON -DBUILD_GIT_ID=ON"
             TYPE: "with-all"
+
+          - OPTIONAL_DEFINES: "-DBUILD_PLAYERBOTS=ON -DBUILD_AHBOT=ON -DBUILD_SOLOCRAFT=ON"
+            TYPE: "with-playerbot-ahbot-solocraft"
 
           - OPTIONAL_DEFINES: "-DBUILD_PLAYERBOTS=ON -DBUILD_AHBOT=ON"
             TYPE: "with-playerbot-ahbot"
@@ -38,6 +41,9 @@ jobs:
 
           - OPTIONAL_DEFINES: "-DBUILD_AHBOT=ON"
             TYPE: "with-ahbot"
+
+          - OPTIONAL_DEFINES: "-DBUILD_SOLOCRAFT=ON"
+            TYPE: "with-solocraft"
 
     steps:
       - name: Checkout
