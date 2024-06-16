@@ -38,9 +38,8 @@ if(BUILD_PLAYERBOTS)
     message(STATUS "Playerbots module source dir: ${playerbots_SOURCE_DIR}")
   else()
     message(STATUS "Playerbots module already populated: ${playerbots_POPULATED}")
+    add_subdirectory(${playerbots_SOURCE_DIR})
   endif()
-
-  add_subdirectory(${playerbots_SOURCE_DIR})
 
 else()
   if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots)
