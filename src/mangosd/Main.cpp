@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig)->default_value(_D_PLAYERBOT_CONFIG), "playerbot configuration file")
 #endif
 #ifdef ENABLE_PLAYERBOTS
-    ("playerbots,p", boost::program_options::value<std::string>(&playerBotsConfig)->default_value(_D_PLAYERBOTs_CONFIG), "Playerbots configuration file")
+    ("playerbots,p", boost::program_options::value<std::string>(&playerBotsConfig)->default_value(_D_PLAYERBOTS_CONFIG), "Playerbots configuration file")
 #endif
 #ifdef ENABLE_SOLOCRAFT
     ("solocraft,m", boost::program_options::value<std::string>(&solocraftConfig)->default_value(_D_SOLOCRAFT_CONFIG), "SoloCraft configuration file")
