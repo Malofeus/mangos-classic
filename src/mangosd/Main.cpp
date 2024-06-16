@@ -68,7 +68,7 @@ uint32 realmID;                                             ///< Id of the realm
 /// Launch the mangos server
 int main(int argc, char* argv[])
 {
-    std::string auctionBotConfig, configFile, playerBotConfig, serviceParameter, solocraftConfig;
+    std::string auctionBotConfig, configFile, playerBotConfig, serviceParameter, playerBotsConfig, solocraftConfig;
 
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()
@@ -76,6 +76,9 @@ int main(int argc, char* argv[])
     ("config,c", boost::program_options::value<std::string>(&configFile)->default_value(_MANGOSD_CONFIG), "configuration file")
 #ifdef BUILD_DEPRECATED_PLAYERBOT
     ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig)->default_value(_D_PLAYERBOT_CONFIG), "playerbot configuration file")
+#endif
+#ifdef ENABLE_PLAYERBOTS
+    ("playerbots,p", boost::program_options::value<std::string>(&playerBotsConfig)->default_value(_D_PLAYERBOTs_CONFIG), "Playerbots configuration file")
 #endif
 #ifdef ENABLE_SOLOCRAFT
     ("solocraft,m", boost::program_options::value<std::string>(&solocraftConfig)->default_value(_D_SOLOCRAFT_CONFIG), "SoloCraft configuration file")
@@ -122,6 +125,11 @@ int main(int argc, char* argv[])
 #ifdef BUILD_DEPRECATED_PLAYERBOT
     if (vm.count("playerbot"))
         _PLAYERBOT_CONFIG = playerBotConfig;
+#endif
+
+#ifdef ENABLE_PLAYERBOTS
+    if (vm.count("Playerbots"))
+        _PLAYERBOTS_CONFIG = playerBotsConfig;
 #endif
 
 #ifdef ENABLE_SOLOCRAFT

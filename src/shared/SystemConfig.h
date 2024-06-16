@@ -77,6 +77,9 @@
 # define _MANGOSD_CONFIG  SYSCONFDIR"mangosd.conf"
 # define _REALMD_CONFIG   SYSCONFDIR"realmd.conf"
 # define _AUCTIONHOUSEBOT_CONFIG   SYSCONFDIR"ahbot.conf"
+#ifdef ENABLE_PLAYERBOTS
+    #define _D_PLAYERBOTS_CONFIG SYSCONFDIR"aiplayerbot.conf"
+#endif
 #ifdef ENABLE_SOLOCRAFT
     #define _D_SOLOCRAFT_CONFIG SYSCONFDIR"SoloCraft.conf"
 #endif
@@ -99,11 +102,15 @@
 # define _MANGOSD_CONFIG  SYSCONFDIR"mangosd.conf"
 # define _REALMD_CONFIG  SYSCONFDIR"realmd.conf"
 # define _AUCTIONHOUSEBOT_CONFIG   SYSCONFDIR"ahbot.conf"
+#ifdef ENABLE_PLAYERBOTS
+    #define _D_PLAYERBOTS_CONFIG SYSCONFDIR"aiplayerbot.conf"
+#endif
 #ifdef ENABLE_SOLOCRAFT
     #define _D_SOLOCRAFT_CONFIG SYSCONFDIR"SoloCraft.conf"
 #endif
 #endif
 
+#define _PLAYERBOTS_CONFIG MaNGOS::Singleton<std::string>::Instance()
 #define _SOLOCRAFT_CONFIG MaNGOS::Singleton<std::string>::Instance()
 
 #define _FULLVERSION(REVD,REVH) _PACKAGENAME "/" _VERSION(REVD,REVH) " for " _ENDIAN_PLATFORM
