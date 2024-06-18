@@ -68,7 +68,7 @@ uint32 realmID;                                             ///< Id of the realm
 /// Launch the mangos server
 int main(int argc, char* argv[])
 {
-    std::string auctionBotConfig, configFile, playerBotConfig, serviceParameter, playerBotsConfig, solocraftConfig;
+    std::string auctionBotConfig, configFile, playerBotConfig, serviceParameter, playerBotsConfig;
 
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()
@@ -79,9 +79,6 @@ int main(int argc, char* argv[])
 #endif
 #ifdef ENABLE_PLAYERBOTS
     ("playerbots,p", boost::program_options::value<std::string>(&playerBotsConfig)->default_value(_D_PLAYERBOTS_CONFIG), "playerbot configuration file")
-#endif
-#ifdef ENABLE_SOLOCRAFT
-    ("solocraft,m", boost::program_options::value<std::string>(&solocraftConfig)->default_value(_D_SOLOCRAFT_CONFIG), "SoloCraft configuration file")
 #endif
     ("help,h", "prints usage")
     ("version,v", "print version and exit")
@@ -130,11 +127,6 @@ int main(int argc, char* argv[])
 #ifdef ENABLE_PLAYERBOTS
     if (vm.count("playerbots"))
         _PLAYERBOTS_CONFIG = playerBotsConfig;
-#endif
-
-#ifdef ENABLE_SOLOCRAFT
-    if (vm.count("solocraft"))
-        _SOLOCRAFT_CONFIG = solocraftConfig;
 #endif
 
 #ifdef _WIN32                                                // windows service command need execute before config read

@@ -28,7 +28,7 @@ if(BUILD_PLAYERBOTS)
   FetchContent_Declare(
     PlayerBots
     SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots"
-    GIT_REPOSITORY "https://github.com/Malofeus/playerbots.git"
+    GIT_REPOSITORY "https://github.com/cmangos/playerbots.git"
     GIT_TAG "master"
   )
 
