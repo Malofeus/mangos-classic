@@ -132,6 +132,15 @@ enum WorldSessionState
     WORLD_SESSION_STATE_OFFLINE        = 3
 };
 
+enum TransferAbortReason
+{
+    TRANSFER_ABORT_NONE                         = 0x00,
+    TRANSFER_ABORT_MAX_PLAYERS                  = 0x01,     // Transfer Aborted: instance is full
+    TRANSFER_ABORT_NOT_FOUND                    = 0x02,     // Transfer Aborted: instance not found
+    TRANSFER_ABORT_TOO_MANY_INSTANCES           = 0x03,     // You have entered too many instances recently.
+    TRANSFER_ABORT_ZONE_IN_COMBAT               = 0x05,     // Unable to zone in while an encounter is in progress.
+};
+
 struct CharacterNameQueryResponse
 {
     ObjectGuid          guid;                   // pc's guid
@@ -218,10 +227,10 @@ class WorldSession
         void SendOfflineNameQueryResponses();
         void SendNotification(const char* format, ...) const ATTR_PRINTF(2, 3);
         void SendNotification(int32 string_id, ...) const;
-        void SendPetNameInvalid(uint32 error, const std::string& name) const;
+        void SendPetNameInvalid() const;
         void SendPartyResult(PartyOperation operation, const std::string& member, PartyResult res) const;
         void SendAreaTriggerMessage(const char* Text, ...) const ATTR_PRINTF(2, 3);
-        void SendTransferAborted(uint32 mapid, uint8 reason, uint8 arg = 0) const;
+        void SendTransferAborted(TransferAbortReason reason) const;
         void SendQueryTimeResponse() const;
 
         bool IsInitialZoneUpdated() { return m_initialZoneUpdated; }
