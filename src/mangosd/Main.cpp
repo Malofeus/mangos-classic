@@ -126,7 +126,7 @@ int main(int argc, char* argv[])
 
 #ifdef BUILD_PLAYERBOTS
     if (vm.count("playerbot"))
-        _PLAYERBOTS_CONFIG = playerbotsConfig;
+    _PLAYERBOTS_CONFIG = playerbotsConfig;
 #endif
 
 #ifdef _WIN32                                                // windows service command need execute before config read
