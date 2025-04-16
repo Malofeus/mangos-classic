@@ -100,7 +100,7 @@
  # define _REALMD_CONFIG  SYSCONFDIR"realmd.conf"
  # define _AUCTIONHOUSEBOT_CONFIG   SYSCONFDIR"ahbot.conf"
  #ifdef ENABLE_PLAYERBOTS
-    #define _D_PLAYERBOTS_CONFIG SYSCONFDIR"aiplayerbot.conf"s
+    #define _D_PLAYERBOTS_CONFIG SYSCONFDIR"aiplayerbot.conf"
  #endif
  #endif
  
