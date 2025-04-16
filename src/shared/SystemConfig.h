@@ -96,6 +96,9 @@
 # define _MANGOSD_CONFIG  SYSCONFDIR"mangosd.conf"
 # define _REALMD_CONFIG  SYSCONFDIR"realmd.conf"
 # define _AUCTIONHOUSEBOT_CONFIG   SYSCONFDIR"ahbot.conf"
+# if BUILD_PLAYERBOTS
+# define _PLAYERBOTS_CONFIG SYSCONFDIR"aiplayerbot.con"
+# endif
 #endif
 
 #define _FULLVERSION(REVD,REVH) _PACKAGENAME "/" _VERSION(REVD,REVH) " for " _ENDIAN_PLATFORM
