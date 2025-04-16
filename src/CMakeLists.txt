@@ -23,7 +23,6 @@ endif()
 
 # Playerbots module
 if(BUILD_PLAYERBOTS)
-  #add_compile_definitions(_PLAYERBOTS_CONFIG = SYSCONFDIR"aiplayerbot.conf")
   include(FetchContent)
 
   FetchContent_Declare(

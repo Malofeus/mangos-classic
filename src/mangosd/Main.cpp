@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig)->default_value(_D_PLAYERBOT_CONFIG), "playerbot configuration file")
 #endif
 #ifdef BUILD_PLAYERBOTS
-    ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig), "Playerbots configuration file")
+    ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig)->default_value(_D_PLAYERBOTS_CONFIG), "Playerbots configuration file")
 #endif
     ("help,h", "prints usage")
     ("version,v", "print version and exit")
