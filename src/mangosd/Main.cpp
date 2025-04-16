@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 #ifdef BUILD_DEPRECATED_PLAYERBOT
     ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig)->default_value(_D_PLAYERBOT_CONFIG), "playerbot configuration file")
 #endif
-#ifdef BUILD_PLAYERBOTS
+#ifdef ENABLE_PLAYERBOTS
     ("playerbot,p", boost::program_options::value<std::string>(&playerBotConfig)->default_value(_D_PLAYERBOTS_CONFIG), "Playerbots configuration file")
 #endif
     ("help,h", "prints usage")
@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
         _PLAYERBOT_CONFIG = playerBotConfig;
 #endif
 
-#ifdef BUILD_PLAYERBOTS
+#ifdef ENABLE_PLAYERBOTS
     if (vm.count("playerbot"))
         _PLAYERBOTS_CONFIG = playerBotConfig;
 #endif
