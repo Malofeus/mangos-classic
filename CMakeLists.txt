@@ -342,7 +342,7 @@ if(BUILD_PLAYERBOTS)
 endif()
 
 if (BUILD_SOLOCRAFT)
-    if (not BUILD_GAME_SERVER)
+    if(NOT BUILD_GAME_SERVER)
       set(BUILD_SOLOCRAFT OFF)
       message(STTAUS "BUILD_SOLOCRAFT forced to OF due to BUILD_GAME_SERVER is not set")
     endif()
