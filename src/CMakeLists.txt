@@ -58,7 +58,7 @@ IF(BUILD_SOLOCRAFT)
     SoloCraft
     SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft"
     GIT_REPOSITORY "https://github.com/Malofeus/SoloCraft.git"
-    GIT_TAG "master"
+    GIT_TAG "update-solocraft"
   )
 
   FetchContent_GetProperties(SoloCraft)
