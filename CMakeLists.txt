@@ -341,6 +341,13 @@ if(BUILD_PLAYERBOTS)
   endif()
 endif()
 
+if (BUILD_SOLOCRAFT)
+     if (NOT BUILD_GAME_SERVER)
+       set(BUILD_SOLOCRAFT OFF)
+       message(STTAUS "BUILD_SOLOCRAFT forced to OF due to BUILD_GAME_SERVER is not set")
+     endif()
+ endif()
+
 if(PCH)
   if(${CMAKE_VERSION} VERSION_LESS "3.16")
     message("PCH is not supported by your CMake version")
