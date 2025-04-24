@@ -42,6 +42,10 @@
 #include <iostream>
 #include <string>
 
+#ifdef ENABLE_PLAYERBOTS
+#include "playerbot/PlayerbotAIConfig.h" 
+#endif
+
 #ifdef ENABLE_SOLOCRAFT
 #include "solocraft/SoloCraft.h"
 #endif
