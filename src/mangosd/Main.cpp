@@ -133,12 +133,12 @@ int main(int argc, char* argv[])
 
 #ifdef ENABLE_PLAYERBOTS
     if (vm.count("playerbot"))
-        _PLAYERBOTS_CONFIG = playerBotConfig;
+        sPlayerbotAIConfig.SetConfigFileName(playerBotConfig);
 #endif
 
 #ifdef ENABLE_SOLOCRAFT
     if (vm.count("solocraft"))
-        sSolocraft.SetConfigFileName(solocraftConfig); // _SOLOCRAFT_CONFIG = solocraftConfig;
+        sSolocraft.SetConfigFileName(solocraftConfig);
 #endif
 
 #ifdef _WIN32                                                // windows service command need execute before config read
