@@ -100,12 +100,14 @@
  
  #ifdef ENABLE_PLAYERBOTS
     #define _D_PLAYERBOTS_CONFIG SYSCONFDIR"aiplayerbot.conf"
-    #define _PLAYERBOTS_CONFIG MaNGOS::Singleton<std::string>::Instance()
+    //#define _PLAYERBOTS_CONFIG MaNGOS::Singleton<std::string>::Instance()
+    #define _PLAYERBOTS_CONFIG ""
  #endif
  
  #ifdef ENABLE_SOLOCRAFT
      #define _D_SOLOCRAFT_CONFIG SYSCONFDIR"SoloCraft.conf"
-     #define _SOLOCRAFT_CONFIG MaNGOS::Singleton<std::string>::Instance()
+     //#define _SOLOCRAFT_CONFIG MaNGOS::Singleton<std::string>::Instance()
+     #define _SOLOCRAFT_CONFIG ""
  #endif
  
  #define _FULLVERSION(REVD,REVH) _PACKAGENAME "/" _VERSION(REVD,REVH) " for " _ENDIAN_PLATFORM
