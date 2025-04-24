@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
 
 #ifdef ENABLE_SOLOCRAFT
     if (vm.count("solocraft"))
-        _SOLOCRAFT_CONFIG = solocraftConfig;
+        sSolocraft.SetConfigFilename(solocraftConfig); // _SOLOCRAFT_CONFIG = solocraftConfig;
 #endif
 
 #ifdef _WIN32                                                // windows service command need execute before config read

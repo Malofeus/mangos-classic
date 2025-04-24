@@ -105,7 +105,7 @@
  
  #ifdef ENABLE_SOLOCRAFT
      #define _D_SOLOCRAFT_CONFIG SYSCONFDIR"SoloCraft.conf"
-     #define _SOLOCRAFT_CONFIG MaNGOS::Singleton<std::string>::Instance()
+     //#define _SOLOCRAFT_CONFIG MaNGOS::Singleton<std::string>::Instance()
  #endif
  
  #define _FULLVERSION(REVD,REVH) _PACKAGENAME "/" _VERSION(REVD,REVH) " for " _ENDIAN_PLATFORM
