@@ -42,6 +42,10 @@
 #include <iostream>
 #include <string>
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 #ifdef _WIN32
 #include "Platform/ServiceWin32.h"
 char serviceName[] = "mangosd";
